@@ -32,13 +32,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/git/SmartHome/gitSmartHome/src/main/java/com/khai/schedule",
+    "last_opened_file_path": "C:/git/SmartHome/gitSmartHome/src/main/java/com/khai/sensors",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\sensors" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\schedule" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\devices" />
     </key>
