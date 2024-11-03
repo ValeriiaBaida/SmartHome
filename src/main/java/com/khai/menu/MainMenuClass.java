@@ -56,15 +56,15 @@ public class MainMenuClass {
         switch (choice) {
             case 1:
                 DeviceMenuClass deviceMenuClass = new DeviceMenuClass(smartHome, scanner);
-                while(deviceMenuClass.choiseMenu(deviceMenuClass.printMenu())) {}
+                while(deviceMenuClass.choiceMenu(deviceMenuClass.printMenu())) {}
                 break;
             case 2:
                 RoomMenuClass roomMenuClass = new RoomMenuClass(smartHome, scanner);
-                while(roomMenuClass.choiseMenu(roomMenuClass.printMenu())) {}
+                while(roomMenuClass.choiceMenu(roomMenuClass.printMenu())) {}
                 break;
             case 3:
-                SheludeMenuClass sheludeMenuClass = new SheludeMenuClass(smartHome, scanner);
-                while(sheludeMenuClass.choiseMenu(sheludeMenuClass.printMenu())) {}
+                ScheduleMenuClass scheduleMenuClass = new ScheduleMenuClass(smartHome, scanner);
+                while(scheduleMenu.choiceMenu(scheduleMenu.printMenu())) {}
                 break;
             case 4:
                 smartHome.viewSensorData();

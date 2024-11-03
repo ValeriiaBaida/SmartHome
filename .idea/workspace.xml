@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,18 +39,21 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/git/SmartHome/gitSmartHome/src/main/java/com/khai/validators",
+    "last_opened_file_path": "C:/git/SmartHome/gitSmartHome/src/main/java/com/khai/menu",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\menu" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\validators" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\room" />
       <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\sensors" />
-      <recent name="C:\git\SmartHome\gitSmartHome\src\main\java\com\khai\schedule" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.khai" />
     </key>
   </component>
   <component name="SharedIndexes">
