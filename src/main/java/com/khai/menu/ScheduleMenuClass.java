@@ -1,20 +1,15 @@
 package com.khai.menu;
 
-import com.khai.room.RoomClass;
 import com.khai.SmartHome;
-import com.khai.devices.*;
-import com.khai.validators.*;
+import com.khai.validators.TimeValidator;
 
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
-public class MainMenuClass {
+public class ScheduleMenuClass {
     private final SmartHome smartHome;
     private final Scanner scanner;
 
-    public static final String RESET = "\033[0m";  // Скинути колір тексту
+    public static final String RESET = "\033[0m";
     public static final String BLACK = "\033[0;30m";
     public static final String RED = "\033[0;31m";
     public static final String GREEN = "\033[0;32m";
@@ -29,21 +24,19 @@ public class MainMenuClass {
     public static final String BRIGHT_BLUE = "\033[0;94m";
     public static final String BRIGHT_PURPLE = "\033[0;95m";
 
-    public MainMenuClass()
-    {
-        smartHome = new SmartHome();
-        scanner = new Scanner(System.in);
+    public ScheduleMenuClass(SmartHome smartHome, Scanner scanner) {
+        this.smartHome = smartHome;
+        this.scanner = scanner;
     }
 
     public int printMenu()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(CYAN + "\nSmart Home System Menu:" + RESET);
-        System.out.println(RED+"1. Device menu" + RESET);
-        System.out.println(GREEN+"2. Room menu" + RESET);
-        System.out.println(GREEN+"3. Schedule menu" + RESET);
-        System.out.println(YELLOW+"4. View Sensor Data" + RESET);
-        System.out.println(BRIGHT_RED+"5. Exit"+RESET);
+        System.out.println(CYAN + "\nSchedule Menu:" + RESET);
+        System.out.println(RED+"1. Add schedule to device" + RESET);
+        System.out.println(GREEN+"2. Remove schedule from device" + RESET);
+        System.out.println(BRIGHT_RED+"3. Exit"+RESET);
+
 
         System.out.print("Choose an option: ");
         int choice = scanner.nextInt();
@@ -55,29 +48,37 @@ public class MainMenuClass {
     {
         switch (choice) {
             case 1:
-                DeviceMenuClass deviceMenuClass = new DeviceMenuClass(smartHome, scanner);
-                while(deviceMenuClass.choiceMenu(deviceMenuClass.printMenu())) {}
+                addScheduleToDevice();
                 break;
             case 2:
-                RoomMenuClass roomMenuClass = new RoomMenuClass(smartHome, scanner);
-                while(roomMenuClass.choiceMenu(roomMenuClass.printMenu())) {}
+                removeScheduleFromDevice();
                 break;
             case 3:
-                ScheduleMenuClass scheduleMenuClass = new ScheduleMenuClass(smartHome, scanner);
-                while(scheduleMenuClass.choiceMenu(scheduleMenuClass.printMenu())) {}
-                break;
-            case 4:
-                smartHome.viewSensorData();
-                break;
-            case 5:
                 System.out.println("Exiting...");
-                scanner.close();
                 return false;
             default:
                 System.out.println("Invalid option.");
         }
         return true;
     }
+    private void removeScheduleFromDevice() {
+        smartHome.viewSchedules();
+        System.out.print("Enter device index to remove schedule: ");
+        int removeIndex = scanner.nextInt() - 1;
+        smartHome.removeSchedule(removeIndex);
+    }
 
-
+    private void addScheduleToDevice() {
+        System.out.print("Enter device index to schedule: ");
+        int scheduleIndex = scanner.nextInt() - 1;
+        scanner.nextLine();
+        System.out.print("Enter time (e.g., 10:00 AM): ");
+        String time = scanner.nextLine();
+        try {
+            TimeValidator.validateTimeFormat(time);
+            smartHome.setSchedule(scheduleIndex, time);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
