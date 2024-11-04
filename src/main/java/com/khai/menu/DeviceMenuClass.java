@@ -155,9 +155,15 @@ public class DeviceMenuClass {
         scanner.nextLine();
 
         switch (className) {
-            case "AirConditionerClass" -> smartHome.addDevice(new AirConditionerClass(deviceName));
-            case "LightClass" -> smartHome.addDevice(new LightClass(deviceName));
-            default -> throw new IllegalArgumentException("Unknown class: " + className);
+            case "AirConditionerClass":
+                smartHome.addDevice(new AirConditionerClass(deviceName));
+                break;
+            case "LightClass":
+                smartHome.addDevice(new LightClass(deviceName));
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown class: " + className);
+
         };
     }
 }
