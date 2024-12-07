@@ -5,7 +5,7 @@ import java.util.*;
 
 public class CleanerClass implements DeviceInterface {
     private boolean isOn = false;
-    private int speed = 5; 
+    private int speed = 5;
     private String name;
 
     public CleanerClass(String name) {

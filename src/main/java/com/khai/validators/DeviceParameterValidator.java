@@ -27,5 +27,17 @@ public class DeviceParameterValidator {
             throw new IllegalArgumentException("Temperature must be a valid number.");
         }
     }
+
+    public static void validateCleanerParameters(Map<String, String> params) {
+        String speedStr = params.get("speed");
+        try {
+            int speed = Integer.parseInt(speedStr);
+            if (speed < 1 || speed > 10) {
+                throw new IllegalArgumentException("Cleaning speed must be between 1 and 10.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Speed must be a valid number.");
+        }
+    }
 }
 

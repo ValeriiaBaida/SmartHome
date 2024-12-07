@@ -56,12 +56,12 @@ public class DeviceMenuClass {
     {
         switch (choice) {
             case 1:
-                System.out.print("Enter device type (Light/AirConditioner): ");
+                System.out.print("Enter device type (Light/AirConditioner/Socket/Cleaner): ");
 
-                System.out.print("Select variant (1-2): ");
+                System.out.print("Select variant (1-4): ");
                 while (!scanner.hasNextInt()) {
-                    System.out.println("please enter a number between 1 and 2");
-                    scanner.next(); // очищаем неправильный ввод
+                    System.out.println("please enter a number between 1 and 4");
+                    scanner.next(); // очищення при неправильному вводі
                 }
                 int choiceDevice = scanner.nextInt();
                 switch (choiceDevice)
@@ -71,6 +71,12 @@ public class DeviceMenuClass {
                         break;
                     case 2:
                         initializeClass("AirConditionerClass");
+                        break;
+                    case 3:
+                        initializeClass("SocketClass");
+                        break;
+                    case 4:
+                        initializeClass("CleanerClass");
                         break;
                     default:
                         break;
@@ -121,7 +127,7 @@ public class DeviceMenuClass {
         }
 
         Map<String, String> params = new HashMap<>();
-        System.out.print("Enter brightness (for Light) or temperature (for AirConditioner): ");
+        System.out.print("Enter brightness (for Light) or temperature (for AirConditioner) or speed (for Cleaner): ");
         String input = scanner.nextLine();
 
 
@@ -129,7 +135,9 @@ public class DeviceMenuClass {
             params.put("brightness", input);
         } else if (smartHome.getDevices().get(paramDeviceIndex) instanceof AirConditionerClass) {
             params.put("temperature", input);
-        } else {
+        } else if (smartHome.getDevices().get(paramDeviceIndex) instanceof CleanerClass) {
+            params.put("speed", input);
+        }else {
             System.out.println("Invalid device type for setting parameters.");
             return;
         }
@@ -160,6 +168,12 @@ public class DeviceMenuClass {
                 break;
             case "LightClass":
                 smartHome.addDevice(new LightClass(deviceName));
+                break;
+            case "SocketClass":
+                smartHome.addDevice(new SocketClass(deviceName));
+                break;
+            case "CleanerClass":
+                smartHome.addDevice(new CleanerClass(deviceName));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown class: " + className);

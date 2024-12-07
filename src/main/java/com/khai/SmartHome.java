@@ -99,7 +99,9 @@ public class SmartHome {
             DeviceParameterValidator.validateLightParameters(params);
         } else if (deviceInterface instanceof AirConditionerClass) {
             DeviceParameterValidator.validateAirConditionerParameters(params);
-        } else {
+        } else if (deviceInterface instanceof CleanerClass) {
+            DeviceParameterValidator.validateCleanerParameters(params);
+        }else {
             throw new IllegalArgumentException("Invalid device type for setting parameters.");
         }
         deviceInterface.setParameters(params);
@@ -127,7 +129,7 @@ public class SmartHome {
 
     public void deleteDevice(int indexDevice) {
         if (!DeviceValidator.isValidDeviceIndex(indexDevice, devices)) return;
-        //очистить комнату от устройства
+        //очистити кімнату від пристрою
         findDeviceInRoom(indexDevice);
         devices.remove(indexDevice);
     }
