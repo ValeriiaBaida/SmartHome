@@ -31,7 +31,7 @@ public class DeviceParameterValidator {
     }
 
     public static void validateCleanerParameters(Map<String, String> params) {
-        
+
         String speedStr = params.get("speed");
         try {
             int speed = Integer.parseInt(speedStr);
