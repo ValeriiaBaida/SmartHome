@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TimeValidator {
-    private static final String TIME_FORMAT = "hh:mm a";
+    private static final String TIME_FORMAT = "hh:mm:ss";
 
     public static void validateTimeFormat(String time) throws IllegalArgumentException {
         SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT);
@@ -14,7 +14,7 @@ public class TimeValidator {
         try {
             Date date = sdf.parse(time);
         } catch (ParseException e) {
-            throw new IllegalArgumentException("Invalid time format. Please use HH:mm AM/PM format.");
+            throw new IllegalArgumentException("Invalid time format. Please use HH:mm:ss format.");
         }
     }
 }
