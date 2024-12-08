@@ -8,13 +8,13 @@ class TimeValidatorTest {
 
     @Test
     void testValidateTimeFormat_ValidTime_AM() {
-        String validTime = "08:30 AM";
+        String validTime = "08:30:10";
         assertDoesNotThrow(() -> TimeValidator.validateTimeFormat(validTime));
     }
 
     @Test
     void testValidateTimeFormat_ValidTime_PM() {
-        String validTime = "11:45 PM";
+        String validTime = "11:45:12";
         assertDoesNotThrow(() -> TimeValidator.validateTimeFormat(validTime));
     }
 
@@ -24,16 +24,16 @@ class TimeValidatorTest {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> TimeValidator.validateTimeFormat(invalidTime));
-        assertEquals("Invalid time format. Please use HH:mm AM/PM format.", exception.getMessage());
+        assertEquals("Invalid time format. Please use HH:mm:ss format.", exception.getMessage());
     }
 
     @Test
     void testValidateTimeFormat_InvalidTimeFormat_IncorrectFormat() {
-        String invalidTime = "20:15 PM"; // Неправильний формат
+        String invalidTime = "20:15:45"; // Неправильний формат
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> TimeValidator.validateTimeFormat(invalidTime));
-        assertEquals("Invalid time format. Please use HH:mm AM/PM format.", exception.getMessage());
+        assertEquals("Invalid time format. Please use HH:mm:ss format.", exception.getMessage());
     }
 
     @Test
@@ -42,7 +42,7 @@ class TimeValidatorTest {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> TimeValidator.validateTimeFormat(invalidTime));
-        assertEquals("Invalid time format. Please use HH:mm AM/PM format.", exception.getMessage());
+        assertEquals("Invalid time format. Please use HH:mm:ss format.", exception.getMessage());
     }
 
     @Test
@@ -51,6 +51,6 @@ class TimeValidatorTest {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> TimeValidator.validateTimeFormat(invalidTime));
-        assertEquals("Invalid time format. Please use HH:mm AM/PM format.", exception.getMessage());
+        assertEquals("Invalid time format. Please use HH:mm:ss format.", exception.getMessage());
     }
 }
