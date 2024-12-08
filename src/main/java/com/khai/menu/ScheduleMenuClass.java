@@ -72,7 +72,7 @@ public class ScheduleMenuClass {
         System.out.print("Enter device index to schedule: ");
         int scheduleIndex = scanner.nextInt() - 1;
         scanner.nextLine();
-        System.out.print("Enter time (e.g., 10:00 AM): ");
+        System.out.print("Enter time (e.g., 10:00:00): ");
         String time = scanner.nextLine();
         try {
             TimeValidator.validateTimeFormat(time);
