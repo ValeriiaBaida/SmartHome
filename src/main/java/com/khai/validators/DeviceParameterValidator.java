@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class DeviceParameterValidator {
 
     public static void validateLightParameters(Map<String, String> params) {
+
         String brightnessStr = params.get("brightness");
         try {
             int brightness = Integer.parseInt(brightnessStr);
@@ -17,6 +18,7 @@ public class DeviceParameterValidator {
     }
 
     public static void validateAirConditionerParameters(Map<String, String> params) {
+
         String temperatureStr = params.get("temperature");
         try {
             int temperature = Integer.parseInt(temperatureStr);
@@ -29,6 +31,7 @@ public class DeviceParameterValidator {
     }
 
     public static void validateCleanerParameters(Map<String, String> params) {
+        
         String speedStr = params.get("speed");
         try {
             int speed = Integer.parseInt(speedStr);
