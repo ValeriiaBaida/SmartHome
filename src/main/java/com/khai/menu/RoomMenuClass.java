@@ -6,6 +6,7 @@ import com.khai.SmartHome;
 import java.util.Scanner;
 
 public class RoomMenuClass {
+
     private final SmartHome smartHome;
     private final Scanner scanner;
 
@@ -74,6 +75,7 @@ public class RoomMenuClass {
     }
 
     private void removeDeviceFromRoom() {
+
         smartHome.viewRooms();
         System.out.print("Enter room index to control: ");
         int roomIndex = scanner.nextInt() - 1;
@@ -84,14 +86,17 @@ public class RoomMenuClass {
         int deviceIndex = scanner.nextInt() - 1;
         scanner.nextLine();
         room.removeDevice(deviceIndex);
+
     }
 
     private void addRoom() {
+
         String room;
         System.out.println("Enter room name");
         room = scanner.next();
         scanner.nextLine();
         smartHome.addRoom(new RoomClass(room));
+        
     }
 
     private void addDeviceToRoom() {
