@@ -5,7 +5,7 @@ import java.util.*;
 
 public class CleanerClass implements DeviceInterface {
     private boolean isOn = false;
-    private int speed = 5;
+    private int speed = 1;
     private String name;
 
     public CleanerClass(String name) {
@@ -15,13 +15,13 @@ public class CleanerClass implements DeviceInterface {
     @Override
     public void turnOn() {
         isOn = true;
-        System.out.println("Robotic cleaner " + name + " is turned on.");
+        System.out.println("Robotic vacuum cleaner " + name + " is turned on.");
     }
 
     @Override
     public void turnOff() {
         isOn = false;
-        System.out.println("Robotic cleaner " + name + " is turned off.");
+        System.out.println("Robotic vacuum cleaner " + name + " is turned off.");
     }
 
     @Override
